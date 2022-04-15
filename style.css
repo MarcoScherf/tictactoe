@@ -48,6 +48,27 @@ main {
     padding-right: 20px;
 }
 
+.player-inactive {
+    opacity: 0.5;
+}
+
+.game-table {
+    position: relative;
+    margin-left: 20px;
+}
+
+.horizontal-line {
+    position: absolute;
+    height: 8px;
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.make-vertical {
+    transform: rotate(90deg);
+    top: 50%;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -87,6 +108,10 @@ table tr td:last-child {
     .game {
         flex-direction: column;
     }
+    .game-table {
+        max-width: 415px;
+        max-height: 415px;
+    }
     .players {
         flex-direction: unset;
         margin-bottom: 25px;
@@ -96,6 +121,9 @@ table tr td:last-child {
         width: 50%;
     }
     .game-table {
+        width: 80%;
+    }
+    .shape {
         width: 80%;
     }
 }
