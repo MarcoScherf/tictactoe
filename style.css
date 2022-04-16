@@ -7,7 +7,7 @@ body {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .w-80 {
@@ -33,6 +33,7 @@ main {
 }
 
 .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -62,10 +63,12 @@ main {
     height: 8px;
     width: 95%;
     background-color: rgba(0, 0, 0, 0.5);
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
 }
 
 .make-vertical {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scaleX(0.0);
     top: 50%;
 }
 
@@ -104,6 +107,41 @@ table tr td:last-child {
     border-right: 0;
 }
 
+.game-over {
+    align-items: center;
+    flex-direction: column;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.game-over img {
+    width: 50%;
+}
+
+.restart-btn {
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 35px;
+    background-color: #ffa600;
+    border-radius: 7px;
+    border: unset;
+    cursor: pointer;
+}
+
+.restart-btn:hover {
+    background-color: #ffc965;
+}
+
 @media(max-width: 900px) {
     .game {
         flex-direction: column;
@@ -124,6 +162,9 @@ table tr td:last-child {
         width: 80%;
     }
     .shape {
+        width: 80%;
+    }
+    .game-over img {
         width: 80%;
     }
 }

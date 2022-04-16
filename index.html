@@ -13,86 +13,92 @@
 <body>
     <main>
         <div class="container">
-            <div class="head flex"><img src="img/de.png" class="w-80"></div>
-            <div class="game">
-                <div class="players">
-                    <img class="player" id="player-1" src="img/player1.png">
-                    <img class="player player-inactive" id="player-2" src="img/player2.png">
-                </div>
-                <div class="game-table flex">
-                    <div class="horizontal-line" style="top: 15%;"></div>
-                    <div class="horizontal-line" style="top: 49%;"></div>
-                    <div class="horizontal-line" style="top: 83%;"></div>
-                    <div class="horizontal-line make-vertical" style="left: -30%;"></div>
-                    <div class="horizontal-line make-vertical"></div>
-                    <div class="horizontal-line make-vertical" style="left: 37%;"></div>
-                    <div class="horizontal-line make-vertical" style="transform: rotate(-45deg);"></div>
-                    <div class="horizontal-line make-vertical" style="transform: rotate(45deg);"></div>
-                    <table>
-                        <tr>
-                            <td onclick="fildshape(0)">
-                                <div class="flex">
-                                    <img id="circle-0" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-0" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                            <td onclick="fildshape(1)">
-                                <div class="flex">
-                                    <img id="circle-1" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-1" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                            <td onclick="fildshape(2)">
-                                <div class="flex">
-                                    <img id="circle-2" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-2" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td onclick="fildshape(3)">
-                                <div class="flex">
-                                    <img id="circle-3" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-3" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                            <td onclick="fildshape(4)">
-                                <div class="flex">
-                                    <img id="circle-4" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-4" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                            <td onclick="fildshape(5)">
-                                <div class="flex">
-                                    <img id="circle-5" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-5" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td onclick="fildshape(6)">
-                                <div class="flex">
-                                    <img id="circle-6" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-6" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                            <td onclick="fildshape(7)">
-                                <div class="flex">
-                                    <img id="circle-7" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-7" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                            <td onclick="fildshape(8)">
-                                <div class="flex">
-                                    <img id="circle-8" class="shape d-none" src="./img/circle.png">
-                                    <img id="cross-8" class="shape d-none" src="./img/cross.png">
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+            <div class="game-over flex d-none" id="game-over">
+                <img id="game-over-img" src="img/gameover.png">
+                <button class="restart-btn" onclick="restart()">Restart</button>
             </div>
-            <div class="footer flex"><img src="img/ak.png" class="w-80"></div>
+            <div class="game-field" id="game-field">
+                <div class="head flex"><img src="img/de.png" class="w-80"></div>
+                <div class="game">
+                    <div class="players">
+                        <img class="player" id="player-1" src="img/player1.png">
+                        <img class="player player-inactive" id="player-2" src="img/player2.png">
+                    </div>
+                    <div class="game-table flex">
+                        <div id="line-0" class="horizontal-line" style="top: 15%;"></div>
+                        <div id="line-1" class="horizontal-line" style="top: 49%;"></div>
+                        <div id="line-2" class="horizontal-line" style="top: 83%;"></div>
+                        <div id="line-3" class="horizontal-line make-vertical" style="left: -30%;"></div>
+                        <div id="line-4" class="horizontal-line make-vertical"></div>
+                        <div id="line-5" class="horizontal-line make-vertical" style="left: 37%;"></div>
+                        <div id="line-6" class="horizontal-line make-vertical" style="transform: rotate(45deg) scaleX(0.0);"></div>
+                        <div id="line-7" class="horizontal-line make-vertical" style="transform: rotate(-45deg) scaleX(0.0);"></div>
+                        <table>
+                            <tr>
+                                <td onclick="fieldshape(0)">
+                                    <div class="flex">
+                                        <img id="circle-0" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-0" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                                <td onclick="fieldshape(1)">
+                                    <div class="flex">
+                                        <img id="circle-1" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-1" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                                <td onclick="fieldshape(2)">
+                                    <div class="flex">
+                                        <img id="circle-2" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-2" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td onclick="fieldshape(3)">
+                                    <div class="flex">
+                                        <img id="circle-3" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-3" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                                <td onclick="fieldshape(4)">
+                                    <div class="flex">
+                                        <img id="circle-4" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-4" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                                <td onclick="fieldshape(5)">
+                                    <div class="flex">
+                                        <img id="circle-5" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-5" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td onclick="fieldshape(6)">
+                                    <div class="flex">
+                                        <img id="circle-6" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-6" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                                <td onclick="fieldshape(7)">
+                                    <div class="flex">
+                                        <img id="circle-7" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-7" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                                <td onclick="fieldshape(8)">
+                                    <div class="flex">
+                                        <img id="circle-8" class="shape d-none" src="./img/circle.png">
+                                        <img id="cross-8" class="shape d-none" src="./img/cross.png">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="footer flex"><img src="img/ak.png" class="w-80"></div>
+            </div>
         </div>
     </main>
 </body>
